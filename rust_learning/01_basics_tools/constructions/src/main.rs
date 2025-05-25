@@ -36,15 +36,15 @@
 //     println!("Start!");
 // }
 // for: Самый распространенный цикл, используется для итерации по коллекции (например, массиву, вектору или диапазону).
-fn main() {
-    let a = [10, 20, 30, 40, 50];
+// fn main() {
+//     let a = [10, 20, 30, 40, 50];
 
-    for element in a.iter() {
-        println!("the value is: {}", element);
-    }
+//     for element in a.iter() {
+//         println!("the value is: {}", element);
+//     }
 
-    for number in (1..4).rev() {
-        println!("{}!", number);
-    }
-    println!("Start!");
-}
+//     for number in (1..4).rev() {
+//         println!("{}!", number);
+//     }
+//     println!("Start!");
+// }
