@@ -1,0 +1,78 @@
+How to use the To-Do CLI Tool
+
+This guide explains how to compile and use the Rust-based to-do list application.
+
+**1. Compilation and Execution**
+
+To compile and run the application, you can use Cargo, the Rust package manager. All commands should be run from the `CLI-instument` directory.
+
+- **Build the project:**
+  ```bash
+  cargo build
+  ```
+- **Run the application:**
+  You can run the application using `cargo run`. Pass the CLI commands after `--`.
+  ```bash
+  cargo run -- <COMMAND>
+  ```
+  For example:
+  ```bash
+  cargo run -- list
+  ```
+
+**2. Command-Line Interface (CLI) Commands**
+
+Here is a list of available commands and how to use them.
+
+- **Initialize the Journal (`init`)**
+  This is the **first command you must run**. It creates the `journal` directory where your tasks will be stored.
+  ```bash
+  cargo run -- init
+  ```
+
+- **Add a New Task (`add`)**
+  Adds a new task to your to-do list. The title should be a single string (use quotes for multi-word titles).
+  ```bash
+  cargo run -- add "Write documentation"
+  ```
+
+- **List All Tasks (`list`)**
+  Displays all current tasks. Completed tasks are marked with a checkmark (✅).
+  ```bash
+  cargo run -- list
+  ```
+
+- **Toggle Task Status (`toggle`)**
+  Marks a task as completed or pending. If the task is pending, it will be marked as complete, and vice-versa.
+  ```bash
+  cargo run -- toggle "Write documentation"
+  ```
+
+- **Edit a Task (`edit`)**
+  Opens the task file in your default command-line editor.
+  ```bash
+  cargo run -- edit "Write documentation"
+  ```
+
+- **Remove a Task (`remove`)**
+  Deletes a task from your list.
+  ```bash
+  cargo run -- remove "Write documentation"
+  ```
+
+- **Clear All Tasks (`clear`)**
+  Removes all tasks from the journal. It will ask for confirmation.
+  ```bash
+  cargo run -- clear
+  ```
+
+**Example Workflow**
+
+1. `cargo run -- init`
+2. `cargo run -- add "My first task"`
+3. `cargo run -- add "Another task"`
+4. `cargo run -- list`
+5. `cargo run -- toggle "My first task"`
+6. `cargo run -- list`
+7. `cargo run -- remove "Another task"`
+8. `cargo run -- clear`
