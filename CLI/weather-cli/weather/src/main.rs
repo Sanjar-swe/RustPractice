@@ -2,6 +2,11 @@ use std::io;
 use serde::Deserialize;
 use colored::*;
 use dotenv;
+mod api;
+mod models;
+mod output;
+
+const API_URL: &str = "https://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}";
 //Struct to Deserialize the JSON response from openweatherMAP API
 #[derive(Deserialize, Debug)]
 struct WeatherResponse{
@@ -35,11 +40,11 @@ struct Wind{
 
 //Function to get weather information from openweatherMAP API
 fn get_weather_info(city: &str, country_code: &str, api_key: &str) -> Result<WeatherResponse, reqwest::Error>{
-    let url= format!("https://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}&units=metric", 
+    let full_url= format!(API_URL, 
     city, country_code, api_key
     );
-    let response = reqwest::blocking::get(&url)?;
-    let response_json = response.json::<WeatherResponse>()?;
+    let response: reqwest::blocking::get(&full_url)?;
+    let response_json= response.json::<WeatherResponse>()?;
     Ok(response_json)
 }
 
@@ -113,11 +118,11 @@ fn main() {
             println!("{}", "Please enter the Country code: (e.g., US for United States):".bright_green());
             let mut country: String = String::new();
             io::stdin().read_line(&mut country).expect("Failed to read input !");
-            let city: &str = city.trim();
+            let country: &str = country.trim();
 
-            match get_weather_info(&city, &country, &api_key){
-                Ok(response) => display_weather_info(&response),
-                Err(err) => eprintln!("Error in getting weather information: {}", err),
-            }
+            // match get_weather_info(&city, &country, &api_key){
+            //     Ok(response) => display_weather_info(&response),
+            //     Err(err) => eprintln!("Error in getting weather information: {}", err),
+            // }
         }
     }
