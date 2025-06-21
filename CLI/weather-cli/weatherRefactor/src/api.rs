@@ -1,12 +1,16 @@
 use crate::models::WeatherResponse;
 
-const API_URL: &str = "https://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}";
+const BASE_URL: &str = "https://api.openweathermap.org/data/2.5/weather";
 
-pub fn get_weather_info(city: &str, country_code: &str, api_key: &str) -> Result<WeatherResponse, reqwest::Error>{
-    let full_url= format!(API_URL, 
-    city, country_code, api_key
+pub fn get_weather_info(city: &str, country_code: &str, api_key: &str) -> Result<WeatherResponse, reqwest::Error> {
+    let full_url = format!(
+        "{base}?q={city},{country}&appid={key}",
+        base = BASE_URL,
+        city = city,
+        country = country_code,
+        key = api_key
     );
-    let response: reqwest::blocking::get(&full_url);
+    let response = reqwest::blocking::get(&full_url)?;
     let response_json = response.json::<WeatherResponse>()?;
     Ok(response_json)
 }

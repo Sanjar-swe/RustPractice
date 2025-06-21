@@ -1,7 +1,6 @@
 use crate::models::WeatherResponse;
 use colored::*;
 
-
 pub fn display_weather_info(response: &WeatherResponse, format: &str){
     // Extract the weather information from the response
     let description: &String = &response.weather[0].description;
@@ -33,18 +32,27 @@ pub fn display_weather_info(response: &WeatherResponse, format: &str){
     _   => weather_text.normal(),
     };
     // Print the colored weather information 
-    println!("{}", weather_text_colored);
-    // Function to get emoji based on temperature
+    // println!("{}", weather_text_colored);
 
     match format {
         "json" => {
-            let json = serde_json::to_string_pretty(&response).unwrap();
+            let json: String = serde_json::to_string_pretty(&response).unwrap();
             println!("{}", json);
         },
-        "plain" => {},
-        "human" => {}
+        "plain" => {
+            println!("{}", weather_text);
+        },
+        "human" => {
+            println!("{}", weather_text_colored);
+        }
+        _ => {
+            // Если формат неизвестен, выводим plain
+            println!("{}", weather_text);
+        }
     }
 }
+
+
 
 fn get_temp_emoji(temperature: f64) -> &'static str {
     if temperature < 0.0 {
