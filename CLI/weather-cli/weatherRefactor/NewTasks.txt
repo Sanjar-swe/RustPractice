@@ -1,0 +1,18 @@
+1 Make a constant of API_KEY 
+because 
+📌 DRY (Don't Repeat Yourself)
+📌 Separation of Concerns (разделение ответственности)
+
+2 Cli parameters instead of much stdin
+reason:
+📌 Automatable
+📌 Reproducible
+📌 UX
+
+3 Choose --format
+📌 Configurable
+📌 Interoperability (взаимодействие с другими программами)
+
+4 .env
+📌 Security
+📌 Config-as-code
