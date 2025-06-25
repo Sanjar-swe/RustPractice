@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["weather_cli",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"weather_cli/cli/struct.Args.html\" title=\"struct weather_cli::cli::Args\">Args</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Main.html\" title=\"struct weather_cli::models::Main\">Main</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Weather.html\" title=\"struct weather_cli::models::Weather\">Weather</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"weather_cli/models/struct.WeatherResponse.html\" title=\"struct weather_cli::models::WeatherResponse\">WeatherResponse</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Wind.html\" title=\"struct weather_cli::models::Wind\">Wind</a>"]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[1353]}

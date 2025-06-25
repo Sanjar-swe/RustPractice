@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["weather_cli",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"weather_cli/cli/struct.Args.html\" title=\"struct weather_cli::cli::Args\">Args</a>",1,["weather_cli::cli::Args"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Main.html\" title=\"struct weather_cli::models::Main\">Main</a>",1,["weather_cli::models::Main"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Weather.html\" title=\"struct weather_cli::models::Weather\">Weather</a>",1,["weather_cli::models::Weather"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"weather_cli/models/struct.WeatherResponse.html\" title=\"struct weather_cli::models::WeatherResponse\">WeatherResponse</a>",1,["weather_cli::models::WeatherResponse"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.86.0/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"weather_cli/models/struct.Wind.html\" title=\"struct weather_cli::models::Wind\">Wind</a>",1,["weather_cli::models::Wind"]]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[1569]}
