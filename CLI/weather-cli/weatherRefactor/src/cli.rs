@@ -5,10 +5,10 @@ use clap::Parser;
 #[command(about = "Get weather info via OpenWeatherMap", long_about = None)]
 
 pub struct Args {
-    #[arg(short, long)]
+    #[arg(short = 'c', long)]
     pub city: String,
 
-    #[arg(short, long)]
+    #[arg(short = 'C', long)]
     pub country: String,
 
     #[arg(short = 'F', long, default_value = "human")]

@@ -2,23 +2,30 @@ mod api;
 mod models;
 mod output;
 mod cli;
-use clap::Parser;
-use cli::Args;
 
+use clap::Parser;
 use dotenv;
 use colored::*;
 
 use crate::api::get_weather_info;
 use crate::output::display_weather_info;
+use cli::Args;
 
-fn main() {
+fn main()-> Result<(), Box<dyn std::error::Error>> {
     let args: Args = Args::parse();
-    println!("{:?}", args);
+    // println!("{:?}", args);
 
-    let api_key: String = dotenv::var("API_KEY").expect("API_KEY must be set");
-    let country_code: &String = &args.country;
-    let response: models::WeatherResponse = get_weather_info(&args.city, &country_code, &api_key).unwrap();
+    let api_key = match &args.api_key {
+        Some(k)=> k.clone(),
+        None => dotenv::var("API_KEY")
+            .map_err(|_| "API_KEY must be set via --api-key or in .env")?,
+    };
+
+    let response = get_weather_info(&args.city, &args.country, &api_key)?;
+
     display_weather_info(&response, &args.format);
 
     println!("{}", "Welcome to Weather Station!".bright_yellow());
+
+    Ok(())
 }
