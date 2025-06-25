@@ -21,7 +21,11 @@ fn main()-> Result<(), Box<dyn std::error::Error>> {
             .map_err(|_| "API_KEY must be set via --api-key or in .env")?,
     };
 
-    let response = get_weather_info(&args.city, &args.country, &api_key)?;
+    let response = get_weather_info(&args.city, &args.country, &api_key)
+        .map_err(|e| {
+            eprintln!("Error: {}", e);
+            e
+        })?;
 
     display_weather_info(&response, &args.format);
 

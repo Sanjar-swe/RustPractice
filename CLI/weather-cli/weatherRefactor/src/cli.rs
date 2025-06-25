@@ -18,3 +18,18 @@ pub struct Args {
     pub api_key: Option<String>,
 }
 
+#[test]
+    fn test_parse_args_valid(){
+        let result = Args::try_parse_from([
+            "test-bin",
+            "--city", "Tashkent",
+            "--country", "UZ",
+            "--format", "json",
+        ]);
+        assert!(result.is_ok());
+        
+        let args = result.expect("Args should parse correctly");
+        assert_eq!(args.city, "Tashkent");
+        assert_eq!(args.country, "UZ");
+        assert_eq!(args.format, "json");
+}
